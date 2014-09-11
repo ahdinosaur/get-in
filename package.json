@@ -1,0 +1,33 @@
+{
+  "name": "get-in",
+  "version": "1.0.0",
+  "description": "get value of nested associative structure given array of keys",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tape test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/openappjs/get-in.git"
+  },
+  "keywords": [
+    "object",
+    "property",
+    "access",
+    "deep",
+    "nested",
+    "associative"
+  ],
+  "author": "ahdinosaur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/openappjs/get-in/issues"
+  },
+  "homepage": "https://github.com/openappjs/get-in",
+  "devDependencies": {
+    "tape": "^2.14.0"
+  }
+}
