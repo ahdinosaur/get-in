@@ -20,7 +20,7 @@ npm i --save get-in
 var getIn = require('get-in');
 ```
 
-check out [tests](./test)
+check out [tests](https://github.com/openappjs/get-in/blob/master/test/index.js)
 
 ## license
 
