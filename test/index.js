@@ -1,6 +1,13 @@
 var test = require('tape');
 var getIn = require('../');
 
+test("non-Array path", function (t) {
+  t.equal(getIn({ "a": { "b": "c" }}, undefined), undefined);
+  t.equal(getIn({ "a": { "b": "c" }}, "a.b"), undefined);
+  t.equal(getIn({ "a": { "b": "c" }}, { "a": "b"}), undefined);
+  t.end();
+});
+
 test("a simple path", function (t) {
   t.equal(
     getIn(

@@ -1,5 +1,5 @@
 var getIn = module.exports = function getIn (object, path) {
-  if ((!path instanceof Array) || path.length === 0) {
+  if (!(path instanceof Array) || path.length === 0) {
     return;
   }
 
