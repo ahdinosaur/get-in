@@ -36,6 +36,23 @@ test("a two-level path", function (t) {
   t.end();
 });
 
+test("a two-level path into arrays", function (t) {
+  t.equal(
+    getIn(
+      [
+        "a",
+        [
+          "b",
+          "c",
+        ],
+      ],
+      [1, 1]
+    ),
+    "c"
+  );
+  t.end();
+});
+
 test("an unresolved path", function (t) {
   t.equal(
     getIn(
