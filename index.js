@@ -11,7 +11,7 @@ var getIn = module.exports = function getIn (object, path) {
 
   var key = path.shift();
 
-  if (!object || typeof object !== "object") {
+  if (!object) {
     return object;
   }
 
