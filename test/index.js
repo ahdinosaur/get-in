@@ -66,6 +66,21 @@ test("a path that resolves to undefined property", function (t) {
   t.end();
 });
 
+test("a path that resolves to null property", function (t) {
+  t.equal(
+    getIn(
+      {
+        "a": {
+          "b": null,
+        },
+      },
+      ["a", "b"]
+    ),
+    null
+  );
+  t.end();
+});
+
 test("object with custom get function", function (t) {
   function Obj (props) {
     this.props = props;
