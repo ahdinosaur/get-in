@@ -119,3 +119,8 @@ test("object with custom get function", function (t) {
   );
   t.end();
 });
+
+test("returns undefined when object too shallow", function(t) {
+  t.equal(getIn(null, [0, 0]), undefined);
+  t.end();
+});

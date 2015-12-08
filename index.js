@@ -7,13 +7,13 @@ var getIn = module.exports = function getIn (object, path) {
     return;
   }
 
+  if (!object) {
+    return;
+  }
+
   path = path.slice();
 
   var key = path.shift();
-
-  if (!object) {
-    return object;
-  }
 
   var get;
   if (object.get) {
