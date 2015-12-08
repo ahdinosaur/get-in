@@ -1,10 +1,15 @@
 var test = require('tape');
 var getIn = require('../');
 
-test("non-Array path", function (t) {
+test.skip("non-Array path", function (t) {
   t.equal(getIn({ "a": { "b": "c" }}, undefined), undefined);
   t.equal(getIn({ "a": { "b": "c" }}, "a.b"), undefined);
   t.equal(getIn({ "a": { "b": "c" }}, { "a": "b"}), undefined);
+  t.end();
+});
+
+test("an empty path", function (t) {
+  t.equal(getIn("object", []), "object");
   t.end();
 });
 
@@ -122,5 +127,11 @@ test("object with custom get function", function (t) {
 
 test("returns undefined when object too shallow", function(t) {
   t.equal(getIn(null, [0, 0]), undefined);
+  t.end();
+});
+
+test("supports default value for unmatched", function(t) {
+  t.equal(getIn(null, [0, 0], "default"), "default");
+  t.equal(getIn({}, ["missing"], "default"), "default");
   t.end();
 });
