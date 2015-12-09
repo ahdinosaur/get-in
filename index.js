@@ -1,19 +1,28 @@
-var defaultGet = function get (object, key) {
-  return object && object[key];
+var defaultGet = function get (object, key, def) {
+  if (key in object) {
+    return object[key];
+  } else {
+    return def;
+  }
 }
 
-var getIn = module.exports = function getIn (object, path) {
-  if (!(path instanceof Array) || path.length === 0) {
+var getIn = module.exports = function getIn (object, path, def) {
+  if (!Array.isArray(path)) {
     return;
+  }
+
+  if (path.length === 0) {
+    return object;
+  }
+
+  // already established that path is >0, thus empty object is unexpected.
+  if (!object) {
+    return def;
   }
 
   path = path.slice();
 
   var key = path.shift();
-
-  if (!object) {
-    return object;
-  }
 
   var get;
   if (object.get) {
@@ -23,10 +32,10 @@ var getIn = module.exports = function getIn (object, path) {
   }
 
   if (path.length === 0) {
-    return get(key);
+    return get(key, def);
   }
 
   if (path.length) {
-    return getIn(get(key), path);
+    return getIn(get(key, def), path);
   }
 }
