@@ -1,15 +1,16 @@
-var test = require('tape')
-var getIn = require('../')
+const test = require('tape')
+const getIn = require('../')
 
-test.skip('non-Array path', function (t) {
-  t.equal(getIn({ 'a': { 'b': 'c' } }, undefined), undefined)
-  t.equal(getIn({ 'a': { 'b': 'c' } }, 'a.b'), undefined)
-  t.equal(getIn({ 'a': { 'b': 'c' } }, { 'a': 'b' }), undefined)
+test('non-Array path', function (t) {
+  t.throws(() => getIn({ 'a': { 'b': 'c' } }))
+  t.throws(() => getIn({ 'a': { 'b': 'c' } }, 'a.b'))
+  t.throws(() => getIn({ 'a': { 'b': 'c' } }, { 'a': 'b' }))
   t.end()
 })
 
 test('an empty path', function (t) {
-  t.equal(getIn('object', []), 'object')
+  const obj = { a: 1 }
+  t.equal(getIn(obj, []), obj)
   t.end()
 })
 
