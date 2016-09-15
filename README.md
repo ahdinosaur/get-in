@@ -4,7 +4,7 @@ get value of nested associative structure given array of keys
 
 inspired by [clojure.core/get-in](http://clojuredocs.org/clojure_core/1.2.0/clojure.core/get-in).
 
-code stolen from [cosmosio/nested-property](https://github.com/cosmosio/nested-property).
+code stolen from [micro-js/get-prop](https://github.com/micro-js/get-prop).
 
 ## install
 
@@ -17,10 +17,25 @@ npm i --save get-in
 ## usage
 
 ```
-var getIn = require('get-in');
+var getIn = require('get-in')
+
+var obj = { foo: { bar: 'baz' } }
+
+getIn(obj, ['foo', 'bar']) // => 'baz'
+getIn(obj, ['foo']) // => { bar: 'baz' }
+getIn(obj, ['ping']) // => undefined
+getIn(obj, ['ping'], 'pong') // => 'pong'
 ```
 
-check out [tests](https://github.com/openappjs/get-in/blob/master/test/index.js)
+## api
+
+### getIn(object, path, default)
+
+- `object` - object to retrieve value from
+- `path` - array specifying path
+- `default` - default value if none found
+
+**Returns**: value
 
 ## license
 

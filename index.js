@@ -1,41 +1,10 @@
-var defaultGet = function get (object, key, def) {
-  if (key in object) {
-    return object[key];
-  } else {
-    return def;
-  }
-}
+module.exports = getIn
 
-var getIn = module.exports = function getIn (object, path, def) {
-  if (!Array.isArray(path)) {
-    return;
+function getIn (obj, path, dft) {
+  for (var i = 0, len = path.length; i < len; ++i) {
+    if (obj == null) return dft
+    obj = obj[path[i]]
   }
 
-  if (path.length === 0) {
-    return object;
-  }
-
-  // already established that path is >0, thus empty object is unexpected.
-  if (!object) {
-    return def;
-  }
-
-  path = path.slice();
-
-  var key = path.shift();
-
-  var get;
-  if (object.get) {
-    get = object.get.bind(object);
-  } else {
-    get = defaultGet.bind(null, object);
-  }
-
-  if (path.length === 0) {
-    return get(key, def);
-  }
-
-  if (path.length) {
-    return getIn(get(key, def), path);
-  }
+  return obj === undefined ? dft : obj
 }
