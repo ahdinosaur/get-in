@@ -7,11 +7,12 @@
     "test": "test"
   },
   "scripts": {
+    "lint": "standard",
     "test": "tape test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/openappjs/get-in.git"
+    "url": "git://github.com/ahdinosaur/get-in.git"
   },
   "keywords": [
     "object",
@@ -24,11 +25,11 @@
   "author": "ahdinosaur",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/openappjs/get-in/issues"
+    "url": "https://github.com/ahdinosaur/get-in/issues"
   },
-  "homepage": "https://github.com/openappjs/get-in",
+  "homepage": "https://github.com/ahdinosaur/get-in",
   "devDependencies": {
     "standard": "^8.0.0",
-    "tape": "^2.14.0"
+    "tape": "^4.6.0"
   }
 }
